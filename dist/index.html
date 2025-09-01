@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Advanced Todo</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-C_Oi5uE5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B_6ISqKc.css">
+  </head>
+  <body>
+    <header class="sticky top-0 z-10 border-b border-white/20 bg-gradient-to-b from-brand-black/90 to-brand-black/90 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+        <h1 class="m-0 text-xl font-semibold text-brand-pink">Advanced Todo</h1>
+        <div class="filters flex items-center gap-2">
+          <input id="search" type="search" placeholder="Search tasks" aria-label="Search tasks" class="h-9 rounded-lg border border-white/20 bg-white/90 px-3 text-brand-black placeholder:text-brand-black/60" />
+          <select id="status-filter" aria-label="Status filter" class="h-9 rounded-lg border border-white/20 bg-white/90 px-2 text-brand-black">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+          </select>
+          <select id="sort-by" aria-label="Sort by" class="h-9 rounded-lg border border-white/20 bg-white/90 px-2 text-brand-black">
+            <option value="created">Sort: Created</option>
+            <option value="due">Sort: Due</option>
+            <option value="priority">Sort: Priority</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto max-w-5xl px-4">
+      <section class="composer grid grid-cols-1 gap-2 py-4 sm:grid-cols-4" aria-label="Add task">
+        <input id="title" type="text" placeholder="Task title" class="sm:col-span-2 rounded-lg border border-white/20 bg-white/90 px-3 py-2 text-brand-black placeholder:text-brand-black/60" />
+        <input id="tags" type="text" placeholder="Tags (comma separated)" class="rounded-lg border border-white/20 bg-white/90 px-3 py-2 text-brand-black placeholder:text-brand-black/60" />
+        <input id="due" type="date" class="rounded-lg border border-white/20 bg-white/90 px-3 py-2 text-brand-black" />
+        <select id="priority" class="rounded-lg border border-white/20 bg-white/90 px-3 py-2 text-brand-black">
+          <option value="3">Priority: Low</option>
+          <option value="2">Priority: Medium</option>
+          <option value="1" selected>Priority: High</option>
+        </select>
+        <textarea id="notes" placeholder="Notes (optional)" class="sm:col-span-4 min-h-[70px] rounded-lg border border-white/20 bg-white/90 px-3 py-2 text-brand-black placeholder:text-brand-black/60"></textarea>
+        <div class="sm:col-span-4 flex justify-end">
+          <button id="add" class="btn">Add Task</button>
+        </div>
+      </section>
+
+      <ul id="list" class="list mb-16 flex list-none flex-col gap-2 p-0" aria-live="polite"></ul>
+    </main>
+
+    <template id="item-template">
+      <li class="item">
+        <label class="left">
+          <input type="checkbox" class="toggle h-4 w-4 rounded border-white/30 bg-transparent" />
+          <span class="title"></span>
+        </label>
+        <div class="meta">
+          <span class="due"></span>
+          <span class="priority inline-flex h-6 min-w-[2.25rem] items-center justify-center rounded-md bg-white/10 px-2 text-xs"></span>
+          <div class="tags"></div>
+        </div>
+        <div class="actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      </li>
+    </template>
+
+  </body>
+  </html>
