@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Advanced Todo</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Advanced Todo</h1>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search tasks" aria-label="Search tasks" />
+        <select id="status-filter" aria-label="Status filter">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="sort-by" aria-label="Sort by">
+          <option value="created">Sort: Created</option>
+          <option value="due">Sort: Due</option>
+          <option value="priority">Sort: Priority</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="composer" aria-label="Add task">
+        <input id="title" type="text" placeholder="Task title" />
+        <input id="tags" type="text" placeholder="Tags (comma separated)" />
+        <input id="due" type="date" />
+        <select id="priority">
+          <option value="3">Priority: Low</option>
+          <option value="2">Priority: Medium</option>
+          <option value="1" selected>Priority: High</option>
+        </select>
+        <textarea id="notes" placeholder="Notes (optional)"></textarea>
+        <button id="add">Add Task</button>
+      </section>
+
+      <ul id="list" class="list" aria-live="polite"></ul>
+    </main>
+
+    <template id="item-template">
+      <li class="item">
+        <label class="left">
+          <input type="checkbox" class="toggle" />
+          <span class="title"></span>
+        </label>
+        <div class="meta">
+          <span class="due"></span>
+          <span class="priority"></span>
+          <div class="tags"></div>
+        </div>
+        <div class="actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+  </html>
+

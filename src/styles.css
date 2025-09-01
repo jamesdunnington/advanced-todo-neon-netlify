@@ -1,0 +1,51 @@
+:root{
+  --pink:#ff3ea5;
+  --pink-600:#e23394;
+  --white:#ffffff;
+  --black:#111111;
+  --gray-1:#f5f5f7;
+  --gray-2:#e9e9ee;
+  --gray-3:#cfcfd8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  background:var(--black);
+  color:var(--white);
+}
+.app-header{
+  position:sticky;top:0;z-index:1;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--gray-3);
+  background:linear-gradient(0deg, rgba(17,17,17,0.85), rgba(17,17,17,0.85)), radial-gradient(1200px 1200px at -20% -20%, rgba(255,62,165,0.18), transparent 60%);
+  backdrop-filter:saturate(120%) blur(8px);
+}
+.app-header h1{margin:0;font-size:1.25rem;color:var(--pink)}
+.filters{display:flex;gap:.5rem;align-items:center}
+.filters input,.filters select{
+  background:var(--gray-1);color:var(--black);border:1px solid var(--gray-3);
+  border-radius:.5rem;padding:.5rem .75rem
+}
+.container{max-width:900px;margin:1.25rem auto;padding:0 1rem}
+.composer{display:grid;grid-template-columns:2fr 1.2fr .9fr .9fr;grid-auto-rows:auto;gap:.5rem;align-items:start}
+.composer #notes{grid-column:1/-1;min-height:70px}
+.composer #add{grid-column:1/-1;justify-self:end}
+button{cursor:pointer;background:var(--pink);color:var(--white);border:none;border-radius:.6rem;padding:.6rem .9rem;font-weight:600}
+button:hover{background:var(--pink-600)}
+.list{list-style:none;margin:1rem 0 4rem;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.item{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.75rem;border:1px solid var(--gray-3);border-radius:.75rem;background:linear-gradient(180deg, rgba(255,62,165,0.08), rgba(255,62,165,0.02))}
+.item .left{display:flex;gap:.6rem;align-items:center}
+.item .title{font-weight:600}
+.item .meta{display:flex;gap:.75rem;align-items:center;color:var(--gray-3)}
+.item .tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.tag{background:var(--white);color:var(--black);border-radius:999px;padding:.1rem .5rem;font-size:.75rem;border:1px solid var(--gray-3)}
+.item .actions{display:flex;gap:.4rem}
+.item .actions .edit{background:transparent;color:var(--white);border:1px solid var(--gray-3)}
+.item .actions .delete{background:#ff477e}
+.completed .title{ text-decoration: line-through; opacity: .7 }
+@media (max-width:800px){
+  .composer{grid-template-columns:1fr;}
+}
+
